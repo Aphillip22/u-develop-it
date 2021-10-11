@@ -16,7 +16,12 @@ const db = mysql.createConnection(
         database: 'election'
     },
     console.log('Connected to the election database.')
-)
+);
+
+//query database
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+});
 
 //handle unsupported user requests (NOT FOUND)
 app.use((req, res) => {
